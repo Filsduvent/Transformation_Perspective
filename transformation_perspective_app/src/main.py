@@ -7,7 +7,7 @@ from perspective.painting_view_modifier import PaintingViewModifier
 from utils.image_utils import load_image, save_image
 
 def main():
-    image_path = '../input/chart.JPG'  
+    image_path = '../document_correction/input/desk.JPG'  
     image = load_image(image_path)
     if image is None:
         print(f"Erreur : Impossible de charger l'image à {image_path}")
