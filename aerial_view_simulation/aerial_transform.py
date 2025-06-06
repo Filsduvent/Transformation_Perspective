@@ -257,5 +257,12 @@ class AerialView:
         # apply the perspective transformation
         warped = utilities.four_point_transform(orig, screenCnt * ratio)
 
+        sharpen = cv2.addWeighted(warped, 1.5, cv2.GaussianBlur(warped, (0, 0), 3), -0.5, 0)
+
+
+        # apply adaptive threshold to get black and white effect
+        thresh = cv2.adaptiveThreshold(sharpen, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 21, 15)
+
         # save the transformed image
-        utilities.save_image(image_path,warped,'aerial_view')
+        utilities.save_image(image_path,thresh,'aerial_view')
+
