@@ -1,3 +1,4 @@
+from datetime import datetime
 import numpy as np
 import cv2
 from scipy.spatial import distance as dist
@@ -21,41 +22,7 @@ def resize(image_path, height = 800):
     return resized
 
 
-'''
 
-def resize(image, width = None, height = None, inter = cv2.INTER_AREA):
-	# initialize the dimensions of the image to be resized and
-	# grab the image size
-	dim = None
-	
-	print(image)
-	(h, w) = image.shape[:2]
-
-	# if both the width and height are None, then return the
-	# original image
-	if width is None and height is None:
-		return image
-
-	# check to see if the width is None
-	if width is None:
-		# calculate the ratio of the height and construct the
-		# dimensions
-		r = height / float(h)
-		dim = (int(w * r), height)
-
-	# otherwise, the height is None
-	else:
-		# calculate the ratio of the width and construct the
-		# dimensions
-		r = width / float(w)
-		dim = (width, int(h * r))
-
-	# resize the image
-	resized = cv2.resize(image, dim, interpolation = inter)
-
-	# return the resized image
-	return resized
-'''
 def order_points(pts):
     # sort the points based on their x-coordinates
     xSorted = pts[np.argsort(pts[:, 0]), :]
@@ -120,4 +87,44 @@ def four_point_transform(image, pts):
 
     # return the warped image
     return warped
+
+def four_point_transform_painting_view(image, pts):
+    # obtain a consistent order of the points and unpack them
+    # individually
+    rect = order_points(pts)
+    (tl, tr, br, bl) = rect
+
+    # Modify destination points to simulate painting view
+    width = int(max(np.linalg.norm(br - bl), np.linalg.norm(tr - tl)))
+    height = int(max(np.linalg.norm(tr - br), np.linalg.norm(tl - bl)))
+
+    shift = int(width * 0.4)  # You can adjust how oblique the view looks
+
+    # now that we have the dimensions of the new image, construct
+    # the set of destination points to obtain a "birds eye view",
+    # (i.e. top-down view) of the image, again specifying points
+    # in the top-left, top-right, bottom-right, and bottom-left
+    # order
+    dst = np.array([
+        [tl[0] + shift, tl[1] + shift // 2],
+        [tr[0] - shift, tr[1] + shift // 2],
+        [br[0] - shift, br[1] - shift // 2],
+        [bl[0] + shift, bl[1] - shift // 2]
+        ], dtype="float32")
+
+    # Step 4: Compute Perspective Transform
+    M = cv2.getPerspectiveTransform(np.array(rect, dtype="float32"), dst)
+
+    # Step 5: Apply Warp
+    warped = cv2.warpPerspective(image, M, (image.shape[1], image.shape[0]))
+
+    # return the warped image
+    return warped
+
+def save_image_painting_view(image_path, image,action):
+    OUTPUT_DIR = "painting_view_change/output"
+    os.makedirs(OUTPUT_DIR,exist_ok= True)
+    basename = f"image_{datetime.now().strftime('%Y%m%d_%H%M%S')}.jpg"
+    cv2.imwrite(f'{OUTPUT_DIR}/{action}_{basename}', image)
+    print(f'Image saved at {OUTPUT_DIR}/{action}_{basename}')
 
