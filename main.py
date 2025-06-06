@@ -8,7 +8,7 @@ if __name__ == "__main__":
 
     print('Processing ... please wait......')
 
-    input_path = "painting_view_change/input/sawyer.jpg"
+    input_path = "painting_view_change/input/timothy.jpg"
     output_path = "painting_view_change/output/"
 
     # Read image
