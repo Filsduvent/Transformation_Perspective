@@ -2,6 +2,7 @@ import cv2
 from document_correction.document_transform import DocScanner
 import utils.point_selector as utilities
 from painting_view_change.painting_transform import PaintingView
+from aerial_view_simulation.aerial_transform import AerialView
 
 
 if __name__ == "__main__":
@@ -63,3 +64,33 @@ if __name__ == "__main__":
 
     print('Processing completed.')
 '''
+
+if __name__ == "__main__":
+
+    print('Processing... please wait...')
+
+    input_path = "aerial_view_simulation/input/dollar_bill.JPG"
+    output_path = "aerial_view_simulation/output/"
+
+    # Load image
+    image = cv2.imread(input_path)
+
+    if image is None:
+        print(f"Error: Could not read the image from {input_path}")
+        exit(1)
+    print('Image read successfully...')
+
+    # Create output folder if it doesn't exist
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
+        print(f"Output directory '{output_path}' created.")
+
+    # Initialize scanner
+    aerialview = AerialView()
+    print('Object created successfully...')
+
+    # Scan image
+    aerial_view_simulation = aerialview.aerialSimulation(input_path)
+    print("Document transformed successfully.")
+
+    print('Processing completed.')
