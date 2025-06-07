@@ -128,3 +128,10 @@ def save_image_painting_view(image_path, image,action):
     cv2.imwrite(f'{OUTPUT_DIR}/{action}_{basename}', image)
     print(f'Image saved at {OUTPUT_DIR}/{action}_{basename}')
 
+
+def save_image_aerial_view(image_path, image,action):
+    OUTPUT_DIR = "aerial_view_simulation/output"
+    os.makedirs(OUTPUT_DIR,exist_ok= True)
+    basename = os.path.basename(image_path)
+    cv2.imwrite(f'{OUTPUT_DIR}/{action}_{basename}', image)
+

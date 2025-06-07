@@ -42,7 +42,7 @@ def painting_view_simulation():
 
     print('Processing...')
 
-    input_path = "painting_view_change/input/timothy.jpg"
+    input_path = "painting_view_change/input/unsplash.jpg"
     output_path = "painting_view_change/output/"
 
     image = cv2.imread(input_path)
@@ -71,7 +71,7 @@ def bird_view_simulation():
 
     print('Processing...')
 
-    input_path = "aerial_view_simulation/input/dollar_bill.JPG"
+    input_path = "aerial_view_simulation/input/unt.jpg"
     output_path = "aerial_view_simulation/output/"
 
     

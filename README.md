@@ -52,7 +52,7 @@ The images below represent for each use case examples of input images, its corre
 ## Document perspective Correction
 <p align="center">
   <img src="document_correction/input/cell_pic.jpg" width="30%" alt="Input image" />
-  <img src="document_correction/output/urban_2_segmented_color.png" width="30%"lt="Selected contours" />
+  <img src="document_correction/output/image_1749335819.59839_contour.jpg" width="30%"lt="Selected contours" />
   <img src="document_correction/output/Scanned_cell_pic.jpg" width="30%" alt="The scanned version" />
 </p>
 
@@ -64,27 +64,36 @@ The images below represent for each use case examples of input images, its corre
 
 ## Aerial View simulation
 <p align="center">
-  <img src="aerial_view_simulation/input/dollar_bill.JPG" width="30%" alt="Input image" />
-  <img src="aerial_view_simulation/output/" width="30%"lt="Selected contours" />
-  <img src="aerial_view_simulation/output/" width="30%" alt="Transformed image" />
+  <img src="aerial_view_simulation/input/willian.jpg" width="30%" alt="Input image" />
+  <img src="aerial_view_simulation/output/image_1749336162.608358_contour.jpg" width="30%"lt="Selected contours" />
+  <img src="aerial_view_simulation/output/aerial_view_willian.jpg" width="30%" alt="Transformed image" />
 </p>
 
 <p align="center">
-  <img src="aerial_view_simulation/input/urban_2_original.png" width="30%" alt="Input image" />
-  <img src="aerial_view_simulation/output/urban_2_segmented_color.png" width="30%"lt="Selected contours" />
-  <img src="aerial_view_simulation/output/urban_11_original.png" width="30%" alt="Transformed image" />
+  <img src="aerial_view_simulation/input/unt.jpg" width="30%" alt="Input image" />
+  <img src="aerial_view_simulation/output/image_1749336706.347455_contour.jpg" width="30%"lt="Selected contours" />
+  <img src="aerial_view_simulation/output/aerial_view_unt.jpg" width="30%" alt="Transformed image" />
 </p>
+
+<p align="center">
+  <img src="aerial_view_simulation/input/helmi.jpg" width="30%" alt="Input image" />
+  <img src="aerial_view_simulation/output/image_1749335834.856518_contour.jpg" width="30%"lt="Selected contours" />
+  <img src="aerial_view_simulation/output/aerial_view_helmi.jpg" width="30%" alt="Transformed image" />
+</p>
+
+
+
 
 ## Painting Point of view change
 <p align="center">
   <img src="painting_view_change/input/unsplash.jpg" width="30%" alt="Input image" />
   <img src="painting_view_change/output/with_contour_image_20250605_214458.jpg" width="30%"lt="Selected contours" />
-  <img src="painting_view_change/output/view_.jpg_" width="30%" alt="Transformed image" />
+  <img src="painting_view_change/output/view_.jpg" width="30%" alt="Transformed image" />
 </p>
 
 <p align="center">
-  <img src="painting_view_change/input/urban_2_original.png" width="30%" alt="Input image" />
-  <img src="painting_view_change/output/urban_2_segmented_color.png" width="30%"lt="Selected contours" />
-  <img src="painting_view_change/output/urban_11_original.png" width="30%" alt="Transformed image" />
+  <img src="painting_view_change/input/Landscape.jpg" width="30%" alt="Input image" />
+  <img src="painting_view_change/output/with_contour_image_20250607_193705.jpg" width="30%"lt="Selected contours" />
+  <img src="painting_view_change/output/view_image_20250607_193705.jpg" width="30%" alt="Transformed image" />
 </p>
 
